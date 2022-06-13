@@ -5,12 +5,15 @@
 
 class Mage : public Hero {
 private:
-    const int health = 100;
-    const int damage = 10;
+    static int health;
+    static int damage;
 
 public:
-    Mage(const string &name) : Hero(100, 10, name) {}
+    Mage(const string &name) : Hero(health, damage, name) {}
 };
+
+int Mage::health = 100;
+int Mage::damage = 10;
 
 
 #endif //FACTORY_MAGE_H

@@ -3,9 +3,13 @@
 #include "Mage.h"
 #include "Barbarian.h"
 
+#include "MageCreator.h"
+#include "BarbarianCreator.h"
+
 using namespace std;
 
 void PrintHeroInfo(Hero* hero);
+Hero* Creator(HeroesCreator* creator);
 
 int main() {
 
@@ -18,18 +22,14 @@ int main() {
     cout << "2. Barbarian " << endl;
     cin >> select;
 
-    string name;
-    cout << "Enter name of hero: ";
-    cin >> name;
-
     switch (select) {
         case '1':
-            player = new Mage(name);
-            enemy = new Barbarian("enemy");
+            player = Creator(new MageCreator());
+            enemy = Creator(new BarbarianCreator());
             break;
         case '2':
-            player = new Barbarian(name);
-            enemy = new Mage("enemy");
+            player = Creator(new BarbarianCreator());
+            enemy = Creator(new MageCreator());
             break;
         default:
             player = nullptr;
@@ -54,4 +54,11 @@ void PrintHeroInfo(Hero* hero) {
     cout << "Name: " << hero->GetName() << endl;
     cout << "Health: " << hero->GetHealth() << endl;
     cout << "--- --- ---" << endl;
+}
+
+Hero* Creator(HeroesCreator* creator) {
+    string name;
+    cout << "Enter name of hero: ";
+    cin >> name;
+    return creator->Create(name);
 }

@@ -5,12 +5,14 @@
 
 class Barbarian : public Hero {
 private:
-    const int health = 110;
-    const int damage = 20;
+    static int health;
+    static int damage;
 
 public:
-    Barbarian(const string &name) : Hero(110, 20, name) {}
+    Barbarian(const string &name) : Hero(health, damage, name) {}
 };
 
+int Barbarian::health = 110;
+int Barbarian::damage = 20;
 
 #endif //FACTORY_BARBARIAN_H

@@ -3,4 +3,4 @@ project(factory)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(factory main.cpp Hero.h Mage.h Barbarian.h)
+add_executable(factory main.cpp Hero.h Mage.h Barbarian.h HeroesCreator.h MageCreator.h BarbarianCreator.h)
